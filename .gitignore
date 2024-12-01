@@ -1,5 +1,6 @@
 **/__pycache__
 *.pyc
+.env
 venv
 env_P13
 0_Notes
