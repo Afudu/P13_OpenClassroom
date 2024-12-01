@@ -16,6 +16,7 @@ class Address(models.Model):
 
 
 class Letting(models.Model):
+    objects = None
     title = models.CharField(max_length=256)
     address = models.OneToOneField(Address, on_delete=models.CASCADE)
 
@@ -24,6 +25,7 @@ class Letting(models.Model):
 
 
 class Profile(models.Model):
+    objects = None
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     favorite_city = models.CharField(max_length=64, blank=True)
 
