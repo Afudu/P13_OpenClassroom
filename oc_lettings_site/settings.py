@@ -8,7 +8,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# Load environment variables
 # SECRET_KEY is fetched from the environment.
 # SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 SECRET_KEY = decouple.config('DJANGO_SECRET_KEY')
@@ -17,7 +16,8 @@ SECRET_KEY = decouple.config('DJANGO_SECRET_KEY')
 # Debug mode; ensures secure defaults in production.
 DEBUG = decouple.config('DJANGO_DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+# Allowed hosts for the application; add your domain in production.
+ALLOWED_HOSTS = decouple.config('ALLOWED_HOSTS', default='').split(',')
 
 # Application definition
 
