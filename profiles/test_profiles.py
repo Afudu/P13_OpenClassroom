@@ -14,8 +14,10 @@ def test_profiles_index_view(client):
     response = client.get(url)
 
     assert response.status_code == 200
-    assert '<title>' in response.content.decode('utf-8')  # Check for the title element
-    assert 'Profiles' in response.content.decode('utf-8')  # Adjust according to the actual title content in template
+    # Check for the title element
+    assert '<title>' in response.content.decode('utf-8')
+    # Adjust according to the actual title content in template
+    assert 'Profiles' in response.content.decode('utf-8')
 
 
 @pytest.mark.django_db

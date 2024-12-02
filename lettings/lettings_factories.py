@@ -1,4 +1,5 @@
-"""pytest-factoryboy makes it easy to combine factory approach to the test setup with the dependency injection,
+"""pytest-factoryboy makes it easy to combine factory approach
+to the test setup with the dependency injection,
 heart of the pytest fixtures."""
 
 import factory
