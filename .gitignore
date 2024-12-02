@@ -2,8 +2,9 @@
 *.pyc
 .env
 venv
-env_P13
-0_Notes
+env_P13/
+0_Notes/
+o_Notes/
 Docs
 # **/migrations/*
 
