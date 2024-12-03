@@ -1,5 +1,5 @@
 import os
-import decouple
+from decouple import config
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
@@ -12,7 +12,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Set traces_sample_rate to 1.0 to capture 100%
 # of transactions for performance monitoring.
 sentry_sdk.init(
-    dsn=decouple.config("SENTRY_DSN"),
+    dsn=config("SENTRY_DSN"),
     integrations=[DjangoIntegration()],
     traces_sample_rate=1.0,
     send_default_pii=True,
@@ -21,14 +21,14 @@ sentry_sdk.init(
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY is fetched from the environment.
 # SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
-SECRET_KEY = decouple.config('DJANGO_SECRET_KEY',  default='unsafe-secret-key')
+SECRET_KEY = config('DJANGO_SECRET_KEY',  default='unsafe-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Debug mode; ensures secure defaults in production.
-DEBUG = decouple.config('DJANGO_DEBUG', default=False, cast=bool)
+DEBUG = config('DJANGO_DEBUG', default=False, cast=bool)
 
 # Allowed hosts for the application; add your domain in production.
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
 
 
 # Application definition
@@ -78,10 +78,17 @@ WSGI_APPLICATION = 'oc_lettings_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'oc-lettings-site.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'oc-lettings-site.sqlite3'),
+        'NAME': config('DB_NAME', default='db.sqlite3'),
     }
 }
 
