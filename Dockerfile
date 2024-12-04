@@ -7,6 +7,10 @@ FROM python:3.9-slim
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
+#ENV SENTRY_URL='https://0bb44f8058ea87888f4f0076f3f7c918@o4508400685088768.ingest.de.sentry.io/4508400688037968'
+#ENV SECRET_KEY='fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s'
+#ENV DB_NAME=oc-lettings-site.sqlite3
+
 # Create working directory
 WORKDIR /OC-lettings
 

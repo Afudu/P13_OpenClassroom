@@ -13,7 +13,7 @@
 **/.git
 **/.gitignore
 **/.project
-**/.settings
+# **/.settings
 **/.toolstarget
 **/.vs
 **/.vscode
@@ -30,6 +30,12 @@
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
-0_Notes/
 LICENSE
 README.md
+
+venv/
+0_Notes/
+.idea/
+.coverage
+.pytest_cache/
+.dockerignore
