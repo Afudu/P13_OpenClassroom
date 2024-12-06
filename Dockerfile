@@ -15,12 +15,11 @@ WORKDIR /OC-lettings
 COPY requirements.txt /OC-lettings/
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-
-# Copy project files to the repository
+# Copy project files
 COPY . /OC-lettings/
 
 # Expose the port the app runs on
 EXPOSE 8000
 
-# Command to run the application
+# Run the application
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
