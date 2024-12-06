@@ -7,6 +7,9 @@ FROM python:3.9-slim
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV DJANGO_SETTINGS_MODULE: oc_lettings_site.settings
+ENV ALLOWED_HOSTS=python-oc-lettings-latest.onrender.com
+ENV DEBUG=False
+ENV SENTRY_DSN='https://0bb44f8058ea87888f4f0076f3f7c918@o4508400685088768.ingest.de.sentry.io/4508400688037968'
 
 # Create working directory
 WORKDIR /OC-lettings
