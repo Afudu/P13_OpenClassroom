@@ -2,7 +2,7 @@
 *.pyc
 .env
 compose.yaml
-Dockerfile
+# Dockerfile
 venv/
 env_P13/
 0_Notes/
