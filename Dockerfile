@@ -6,7 +6,6 @@ FROM python:3.9-slim
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
-ENV DJANGO_SETTINGS_MODULE=oc_lettings_site.settings
 
 # Create working directory
 WORKDIR /OC-lettings

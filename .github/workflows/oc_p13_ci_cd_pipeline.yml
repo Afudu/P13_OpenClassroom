@@ -1,6 +1,7 @@
 name: OC_P13-CI/CD-Pipeline-V1
 run-name: ${{ github.actor }} is testing out OC_P13-CI/CD-Pipeline-V1 jobs 🚀
 env:
+    DJANGO_SETTINGS_MODULE: oc_lettings_site.settings
     SECRET_KEY: ${{ secrets.SECRET_KEY }}
     ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
     DEBUG: ${{ secrets.DEBUG }}
@@ -44,12 +45,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-and-test  # Only run if build-and-test succeeds.
     if: github.ref == 'refs/heads/master' # Only run this step if the branch is master
-    env:
-      SECRET_KEY: ${{ secrets.SECRET_KEY }}
-      ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
-      DEBUG: ${{ secrets.DEBUG }}
-      DB_NAME: ${{ secrets.DB_NAME }}
-      SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
     steps:
       # Step 1: Check out the code
       - name: Checkout Code
