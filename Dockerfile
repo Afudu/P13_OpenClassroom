@@ -20,6 +20,7 @@ WORKDIR /OC-lettings
 COPY requirements.txt /OC-lettings/
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
+
 # Copy project files to the repository
 COPY . /OC-lettings/
 
