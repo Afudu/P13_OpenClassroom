@@ -1,8 +1,6 @@
 **/__pycache__
 *.pyc
 .env
-compose.yaml
-Dockerfile
 venv/
 env_P13/
 0_Notes/
