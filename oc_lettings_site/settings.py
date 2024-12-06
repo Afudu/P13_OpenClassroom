@@ -20,14 +20,14 @@ sentry_sdk.init(
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY is fetched from the environment.
-SECRET_KEY = config('DJANGO_SECRET_KEY', default='something went wrong')
+SECRET_KEY = config('SECRET_KEY', default='secret-key-for-dev')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Debug mode; ensures secure defaults in production.
-DEBUG = config('DJANGO_DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # Allowed hosts for the application; add your domain in production.
-ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOSTS', default='127.0.0.1').split(',')
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
 
 
 # Application definition
@@ -77,19 +77,19 @@ WSGI_APPLICATION = 'oc_lettings_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'oc-lettings-site.sqlite3'),
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': config('DB_NAME', default='db.sqlite3'),
+#         'NAME': os.path.join(BASE_DIR, 'oc-lettings-site.sqlite3'),
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': config('DB_NAME', default='db.sqlite3'),
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
