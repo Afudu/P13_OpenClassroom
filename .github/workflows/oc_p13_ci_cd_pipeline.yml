@@ -3,15 +3,6 @@ run-name: ${{ github.actor }} is testing out OC_P13-CI/CD-Pipeline-V1 jobs 🚀
 
 on: [push]
 
-# Global environment variables
-env:
-  DJANGO_SETTINGS_MODULE: oc_lettings_site.settings
-  SECRET_KEY: ${{ secrets.SECRET_KEY }}
-  ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
-  DEBUG: ${{ secrets.DEBUG }}
-  DB_NAME: ${{ secrets.DB_NAME }}
-  SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-
 jobs:
   # Job 1: Build and Test
   build-and-test:
