@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED=1
 ENV DJANGO_SETTINGS_MODULE: oc_lettings_site.settings
 ENV ALLOWED_HOSTS=python-oc-lettings-latest.onrender.com
 ENV DEBUG=False
-# ENV DB_URL=oc-lettings-site.sqlite3
+ENV DB_URL=oc-lettings-site.sqlite3
 
 # Create working directory
 WORKDIR /OC-lettings
