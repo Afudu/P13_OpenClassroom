@@ -38,4 +38,3 @@ venv/
 .idea/
 .coverage
 .pytest_cache/
-.dockerignore
