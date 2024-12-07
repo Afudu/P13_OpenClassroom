@@ -9,6 +9,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
+# Sentry automatically assigns you a Data Source Name (DSN)
+# when you create a project to start monitoring events in your app.
+# A DSN tells a Sentry SDK where to send events
+# so the events are associated with the correct project.
 # Set traces_sample_rate to 1.0 to capture 100%
 # of transactions for performance monitoring.
 sentry_sdk.init(
