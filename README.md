@@ -1,6 +1,25 @@
+# OpenClassrooms - Python Developer Path
+
+**Project 13:** Scale a Django Application Using Modular Architecture
+
+**Student:** Abdoul Baki Seydou
+
+**Date:** 10/09/2024
+
 ## Summary
 
-Orange County Lettings Website
+The project consists of improving the 
+[initial website](https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings) 
+of Orange County Lettings, a startup in the property rentals industry, 
+both in terms of the code and its deployment.
+
+The website is built with Django, a Python framework, and uses an SQLite database.
+
+The improvements to add the website are broken into four steps:
+   1. Miscellaneous technical debt refactor.
+   2. Modular architecture refactor.
+   3. CI/CD pipeline and deployment.
+   4. Production error logging using Sentry.
 
 ## Local development
 
@@ -76,3 +95,58 @@ Using PowerShell, as above except:
 
 - To activate the virtual environment, `.\venv\Scripts\Activate.ps1` 
 - Replace `which <my-command>` with `(Get-Command <my-command>).Path`
+
+## Deployment
+
+### Prerequisites
+- GitHub repository for the application.
+- [Docker Hub](https://hub.docker.com/) account.
+- [Render](https://render.com/) account with a web app service set up for an existing image.
+- [Sentry](https://sentry.io/signup/) account for a Django project.
+
+### Overview
+The website is deployed using a CI/CD pipeline using GitHub Actions.
+
+The deployment workflow involves:
+- The code is linted and tested before deployment.
+- A Docker image is built, tagged, and pushed to Docker Hub.
+- The image is deployed to Render, a cloud hosting service.
+
+* Note: Store account credentials as GiHub secrets.
+
+### Configuration
+The configuration involves:
+1. Production error logging using Sentry:
+   - Set up the Sentry account created in the Django application settings.
+   - Sentry automatically assigns a Data Source Name (DSN).
+2. Docker Hub repository:
+   - Create a repository to store images created during containerization.
+3. A Dockerfile.
+   - Create a Dockerfile in the root of the project repository.
+4. Render setup:
+   - Create a new web app service for an existing image.
+   - Get the Render deploy hook URL from the web app settings.
+   - Get the deployed app URL from the web app settings.
+5. Account credentials set up as GitHub secrets.
+6. GitHub actions Workflow creation placed in ```.github/workflows``` located in the root.
+
+* Note: Store secrets as environment variables.
+
+### Steps
+To run the deployment:
+
+1. Push changes to the master branch.
+2. The pipeline runs automatically, performing the following jobs:
+   - Build-and-Test
+   - Containerization
+   - Deploy to Production.
+
+* Note: 
+  - Changes to the master branch trigger all three jobs.
+  - Changes to other branches only trigger the build-and-test job.
+
+The deployment can be created anytime by rerunning the pipeline.
+
+The OC Lettings's website is deployed to Render with all required improvements, and is available at: 
+
+https://python-oc-lettings-latest.onrender.com/
