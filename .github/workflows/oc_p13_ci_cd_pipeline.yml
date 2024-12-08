@@ -1,5 +1,12 @@
+# This GitHub Actions workflow automates the CI/CD pipeline
+# for the Orange County Lettings Website project.
+# - It consists of three primary jobs: Build-and-Test, Containerization and Deploy to Production.
+# - It is triggered on push requests.
+# - Changes to the master branch trigger all three jobs.
+# - Changes to other branches only trigger the build-and-test job.
+
 name: OC_P13-CI/CD-Pipeline-V1
-run-name: ${{ github.actor }} is testing out OC_P13-CI/CD-Pipeline-V1 jobs 🚀
+run-name: ${{ github.actor }} is running OC_P13-CI/CD-Pipeline-V1 jobs 🚀
 
 on: [push]
 
