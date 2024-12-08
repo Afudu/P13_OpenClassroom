@@ -12,3 +12,11 @@ from django.shortcuts import render
 # Praesent volutpat porttitor magna, non finibus neque cursus id.
 def index(request):
     return render(request, 'index.html')
+
+
+def trigger_error(request):
+    """
+    This is an intentional error that will be captured by Sentry when triggered.
+    It allows to make sure that error loggin in sentry is working.
+    """
+    return render(request, 1 / 0)
