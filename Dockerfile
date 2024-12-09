@@ -10,7 +10,7 @@ ENV DJANGO_SETTINGS_MODULE: oc_lettings_site.settings
 ENV ALLOWED_HOSTS=python-oc-lettings-latest.onrender.com
 ENV DEBUG=False
 ENV DB_URL=oc-lettings-site.sqlite3
-ENV SENTRY_DSN='https://0bb44f8058ea87888f4f0076f3f7c918@o4508400685088768.ingest.de.sentry.io/4508400688037968'
+ENV SENTRY_DSN=https://0bb44f8058ea87888f4f0076f3f7c918@o4508400685088768.ingest.de.sentry.io/4508400688037968
 
 # Create working directory
 WORKDIR /OC-lettings
