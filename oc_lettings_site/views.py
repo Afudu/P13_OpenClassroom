@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 
 # Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -20,5 +19,4 @@ def trigger_error(request):
     This is an intentional error that will be captured by Sentry when triggered.
     It allows to make sure that error loggin in sentry is working.
     """
-    division_by_zero = 1 / 0  # This will raise a ZeroDivisionError
-    return HttpResponse("This is an intentional error.")
+    return render(request, 1 / 0)
