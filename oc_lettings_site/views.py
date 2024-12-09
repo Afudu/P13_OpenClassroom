@@ -19,4 +19,7 @@ def trigger_error(request):
     This is an intentional error that will be captured by Sentry when triggered.
     It allows to make sure that error loggin in sentry is working.
     """
-    return render(request, 1 / 0)
+    try:
+        1 / 0  # This will raise a ZeroDivisionError
+    except ZeroDivisionError:
+        return render(request, 'triggered_error.html')
