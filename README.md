@@ -15,7 +15,7 @@ both in terms of the code and its deployment.
 
 The website is built with Django, a Python framework, and uses an SQLite database.
 
-The improvements to add the website are broken into four steps:
+The improvements to add to the website are broken into four parts:
    1. Miscellaneous technical debt refactor.
    2. Modular architecture refactor.
    3. CI/CD pipeline and deployment.
@@ -108,11 +108,11 @@ Using PowerShell, as above except:
 The website is deployed using a CI/CD pipeline using GitHub Actions.
 
 The deployment workflow involves:
-- The code is linted and tested before deployment.
-- A Docker image is built, tagged, and pushed to Docker Hub.
-- The image is deployed to Render, a cloud hosting service.
+  - The code is linted and tested before deployment.
+  - A Docker image is built, tagged, and pushed to Docker Hub.
+  - The image is deployed to Render, a cloud hosting service.
 
-* Note: Store account credentials as GiHub secrets.
+Note: Store account credentials as GiHub secrets.
 
 ### Configuration
 The configuration involves:
@@ -128,9 +128,9 @@ The configuration involves:
    - Get the Render deploy hook URL from the web app settings.
    - Get the deployed app URL from the web app settings.
 5. Account credentials set up as GitHub secrets.
-6. GitHub actions Workflow creation placed in ```.github/workflows``` located in the root.
+6. GitHub actions Workflow creation placed in ```.github/workflows``` located in the root of the repository.
 
-* Note: Store secrets as environment variables.
+Note: Store secrets as environment variables.
 
 ### Steps
 To run the deployment:
@@ -147,6 +147,6 @@ To run the deployment:
 
 The deployment can be created anytime by rerunning the pipeline.
 
-The OC Lettings's website is deployed to Render with all required improvements, and is available at: 
+The OC Lettings's website is deployed to Render with all improvements addressed, and is available at: 
 
 https://python-oc-lettings-latest.onrender.com/
