@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from sentry_sdk import capture_exception
 
 
 # Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -19,4 +20,9 @@ def trigger_error(request):
     This is an intentional error that will be captured by Sentry when triggered.
     It allows to make sure that error loggin in sentry is working.
     """
-    return render(request, 1 / 0)
+    try:
+        # ZeroDivisionError triggered.
+        1 / 0
+    except Exception as e:
+        capture_exception(e)
+        return render(request, 'error.html')
