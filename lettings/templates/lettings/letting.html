@@ -1,8 +1,18 @@
-<title>{{ title }}</title>
-<h1>{{ title }}</h1>
-<p>{{ address.number }} {{ address.street }}</p>
-<p>{{ address.city }}, {{ address.state }} {{ address.zip_code }}</p>
-<p>{{ address.country_iso_code }}</p>
-<div><a href="{% url 'lettings_index' %}">Back</a></div>
-<div><a href="{% url 'index' %}">Home</a></div>
-<div><a href="{% url 'profiles_index' %}">Profiles</a></div>
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+
+<div class="card mt-4 mb-3">
+    <div class="card-body">
+    <h5 class="card-title">{{ title }}</h5>
+    <p>{{ address.number }} {{ address.street }}</p>
+    <p>{{ address.city }}, {{ address.state }} {{ address.zip_code }}</p>
+    <p>{{ address.country_iso_code }}</p>
+    </div>
+</div>
+
+<div class="text-center"><a class="btn btn-outline-dark" href="{% url 'lettings_index' %}">Back</a></div>
+
+{% endblock %}

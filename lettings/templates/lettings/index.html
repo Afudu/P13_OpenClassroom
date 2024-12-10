@@ -1,17 +1,26 @@
-<title>Lettings</title>
-<h1>Lettings</h1>
-{% if lettings_list %}
-    <ul>
-    {% for letting in lettings_list %}
-        <li>
-            <a href="{% url 'letting' letting_id=letting.id %}">
-                {{ letting.title }}
-            </a>
-        </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No lettings are available.</p>
-{% endif %}
-<div><a href="{% url 'index' %}">Home</a></div>
-<div><a href="{% url 'profiles_index' %}">Profiles</a></div>
+{% extends 'base.html' %}
+
+{% block title %} Lettings {% endblock %}
+
+
+{% block content %}
+
+<div class="card mt-4">
+     <div class="card-body">
+         <h5 class="card-title">Lettings</h5>
+        {% if lettings_list %}
+            <ul class="m-3">
+            {% for letting in lettings_list %}
+                <li class="m-2">
+                    <a href="{% url 'letting' letting_id=letting.id %}">
+                        {{ letting.title }}
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No lettings are available.</p>
+        {% endif %}
+     </div>
+</div>
+{% endblock %}
