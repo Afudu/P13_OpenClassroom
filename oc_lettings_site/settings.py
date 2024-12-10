@@ -123,7 +123,7 @@ USE_TZ = True
 
 # Directory where static files will be collected for production
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/staticfiles')
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
+STATIC_ROOT = os.path.join(BASE_DIR, '/OC-lettings/staticfiles/')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/

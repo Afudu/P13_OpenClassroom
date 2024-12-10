@@ -8,7 +8,6 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV DJANGO_SETTINGS_MODULE: oc_lettings_site.settings
 ENV ALLOWED_HOSTS=python-oc-lettings-latest.onrender.com
-ENV STATIC_ROOT = os.path.join(BASE_DIR,'/OC-lettings/staticfiles')
 ENV DEBUG=False
 ENV DB_URL=oc-lettings-site.sqlite3
 ENV SENTRY_DSN=https://0bb44f8058ea87888f4f0076f3f7c918@o4508400685088768.ingest.de.sentry.io/4508400688037968
