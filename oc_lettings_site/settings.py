@@ -48,7 +48,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -66,13 +65,10 @@ STATIC_URL = '/static/'
 
 # Directory where static files will be collected for production
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/staticfiles')
-STATIC_ROOT = os.path.join(BASE_DIR, '/OC-lettings/static')
+STATIC_ROOT = os.path.join(BASE_DIR, '/OC-lettings/staticfiles')
 
 # Directory for static files during development
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
-
-# Enable gzip and other optimizations
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 TEMPLATES = [
