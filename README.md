@@ -99,10 +99,9 @@ Using PowerShell, as above except:
 ## Deployment
 
 ### Prerequisites
-- GitHub repository for the application.
-- [Docker Desktop](https://www.docker.com/) - Latest version installed.
+- GitHub repository for the application to be deployed.
 - [Docker Hub](https://hub.docker.com/) account.
-- [Render](https://render.com/) account with a web app service set up for an existing image.
+- [Render](https://render.com/) account with a web app service set up.
 - [Sentry](https://sentry.io/signup/) account for a Django project.
 
 ### Overview
