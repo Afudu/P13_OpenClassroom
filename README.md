@@ -100,6 +100,7 @@ Using PowerShell, as above except:
 
 ### Prerequisites
 - GitHub repository for the application.
+- [Docker Desktop](https://www.docker.com/) - Latest version installed.
 - [Docker Hub](https://hub.docker.com/) account.
 - [Render](https://render.com/) account with a web app service set up for an existing image.
 - [Sentry](https://sentry.io/signup/) account for a Django project.
