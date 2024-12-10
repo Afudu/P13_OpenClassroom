@@ -33,7 +33,6 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 # Allowed hosts for the application; add your domain in production.
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -59,6 +58,17 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'oc_lettings_site.urls'
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.1/howto/static-files/
+STATIC_URL = '/static/'
+
+# Directory where static files will be collected for production
+STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
+
+# Directory for static files during development
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
+
 
 TEMPLATES = [
     {
@@ -119,8 +129,3 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-STATIC_URL = '/static/'
