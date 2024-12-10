@@ -4,7 +4,9 @@ from profiles.models import Profile
 
 def index(request):
     profiles_list = Profile.objects.all()
-    context = {'profiles_list': profiles_list}
+    context = {'profiles_list': profiles_list,
+               'link_name': 'profiles_page',
+               }
     return render(request, 'profiles/index.html', context)
 
 
@@ -14,5 +16,7 @@ def index(request):
 # Nam aliquam dignissim congue. Pellentesque habitant morbi tristique senectus et netus et males
 def profile(request, username):
     profile = Profile.objects.get(user__username=username)
-    context = {'profile': profile}
+    context = {'profile': profile,
+               'link_name': 'profiles_page',
+               }
     return render(request, 'profiles/profile.html', context)

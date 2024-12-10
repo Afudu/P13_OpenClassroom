@@ -9,7 +9,9 @@ from lettings.models import Letting
 # Cras eget scelerisque.
 def index(request):
     lettings_list = Letting.objects.all()
-    context = {'lettings_list': lettings_list}
+    context = {'lettings_list': lettings_list,
+               'link_name': 'lettings_page',
+               }
     return render(request, 'lettings/index.html', context)
 
 
@@ -32,5 +34,6 @@ def letting(request, letting_id):
     context = {
         'title': letting.title,
         'address': letting.address,
+        'link_name': 'lettings_page',
     }
     return render(request, 'lettings/letting.html', context)
