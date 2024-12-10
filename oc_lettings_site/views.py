@@ -12,7 +12,7 @@ from sentry_sdk import capture_exception
 # Nullam elementum urna nisi, pellentesque iaculis enim cursus in.
 # Praesent volutpat porttitor magna, non finibus neque cursus id.
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'home/index.html')
 
 
 def trigger_error(request):
@@ -25,4 +25,4 @@ def trigger_error(request):
         1 / 0
     except Exception as e:
         capture_exception(e)
-        return render(request, 'error.html')
+        return render(request, 'home/error.html')
