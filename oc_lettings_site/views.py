@@ -18,7 +18,7 @@ def index(request):
 def trigger_error(request):
     """
     This is an intentional error that will be captured by Sentry when triggered.
-    It allows to make sure that error loggin in sentry is working.
+    It allows to make sure that error logging in sentry is working.
     """
     try:
         # ZeroDivisionError triggered.
