@@ -108,11 +108,9 @@ Using PowerShell, as above except:
 The website is deployed using a CI/CD pipeline using GitHub Actions.
 
 The deployment workflow involves:
-  - The code is linted and tested before deployment.
-  - A Docker image is built, tagged, and pushed to Docker Hub.
-  - The image is deployed to Render, a cloud hosting service.
-
-Note: Store account credentials as GiHub secrets.
+  1. The code is linted and tested before deployment.
+  2. A Docker image is built, tagged, and pushed to Docker Hub.
+  3. The image is deployed to Render, a cloud hosting service.
 
 ### Configuration
 The configuration involves:
@@ -130,7 +128,7 @@ The configuration involves:
 5. Account credentials set up as GitHub secrets.
 6. GitHub actions Workflow creation placed in ```.github/workflows``` located in the root of the repository.
 
-Note: Store secrets as environment variables.
+Note: Store account credentials as GiHub secrets.
 
 ### Steps
 To run the deployment:
