@@ -61,15 +61,14 @@ ROOT_URLCONF = 'oc_lettings_site.urls'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-STATIC_URL = '/staticfiles/'
+STATIC_URL = '/static/'
 
 # Directory where static files will be collected for production
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/staticfiles')
-STATIC_ROOT = os.path.join(BASE_DIR, '/OC-lettings/staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, '/staticfiles/')
 
 # Directory for static files during development
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
-
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles/')]
 
 TEMPLATES = [
     {
