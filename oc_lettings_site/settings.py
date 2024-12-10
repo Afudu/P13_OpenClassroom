@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'oc_lettings_site.urls'
@@ -68,6 +69,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
 
 # Directory for static files during development
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
+
+# Enable gzip and other optimizations
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 TEMPLATES = [
