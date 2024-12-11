@@ -135,13 +135,16 @@ USE_TZ = True
 # files will be served to users
 # Here, they will be accessible at your-domain.onrender.com/static/...
 # or yourcustomdomain.com/static/...
-FORCE_SCRIPT_NAME = 'OC-lettings/'
-STATIC_URL = FORCE_SCRIPT_NAME + '/static/'
+# FORCE_SCRIPT_NAME = 'OC-lettings/'
+# STATIC_URL = FORCE_SCRIPT_NAME + '/static/'
+
+STATIC_URL = '/static/'
 
 # Directory for static files during development
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
