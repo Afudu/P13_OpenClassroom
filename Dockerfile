@@ -19,11 +19,15 @@ WORKDIR /OC-lettings
 COPY requirements.txt /OC-lettings/
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copy project files
+# Copy project files to the directory
 COPY . /OC-lettings/
+
+# Collect static files
+RUN python manage.py collectstatic --noinput
 
 # Expose the port the app runs on
 EXPOSE 8000
 
 # Run the application
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "oc_lettings_site.wsgi:application"]
