@@ -127,7 +127,7 @@ STORAGES = {
     },
 }
 
-WHITENOISE_MANIFEST_STRICT = False
+# WHITENOISE_MANIFEST_STRICT = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -135,21 +135,24 @@ WHITENOISE_MANIFEST_STRICT = False
 # files will be served to users
 # Here, they will be accessible at your-domain.onrender.com/static/...
 # or yourcustomdomain.com/static/...
-STATIC_URL = '/static/'
+FORCE_SCRIPT_NAME = 'OC-lettings/'
+STATIC_URL = FORCE_SCRIPT_NAME + '/static/'
 
 # Directory for static files during development
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 # This production code might break development mode, so we check whether we're in DEBUG mode
-# if not DEBUG:
-#     # Tell Django to copy static assets into a path called
-#     # `staticfiles` (this is specific to Render)
-#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#     # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
-#     # and renames the files with unique names for each version to support long-term caching
-#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+if not DEBUG:
+    # Tell Django to copy static assets into a path called
+    # `staticfiles` (this is specific to Render)
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
+    # and renames the files with unique names for each version to support long-term caching
+    # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+    WHITENOISE_MANIFEST_STRICT = False
