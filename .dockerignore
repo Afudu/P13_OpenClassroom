@@ -33,6 +33,7 @@
 LICENSE
 README.md
 
+static/
 venv/
 0_Notes/
 .idea/
