@@ -35,17 +35,22 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_CORE_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
 
+PROJECT_APPS = [
     'lettings.apps.LettingsConfig',
     'profiles.apps.ProfilesConfig',
 ]
+
+INSTALLED_APPS = DJANGO_CORE_APPS + PROJECT_APPS
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -58,7 +63,25 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Module containing the URL declarations for the project
 ROOT_URLCONF = 'oc_lettings_site.urls'
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.0/howto/static-files/
+# This setting informs Django of the URI path from which your static
+# files will be served to users
+STATIC_URL = '/static/'
+
+# Directory for static files in development
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
+
+# Directory for static files in production
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Enable the WhiteNoise storage backend,
+# which compresses static files to reduce disk
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+
 
 TEMPLATES = [
     {
@@ -119,18 +142,3 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
-# This setting informs Django of the URI path from which your static
-# files will be served to users
-STATIC_URL = '/static/'
-
-# Directory for static files during development
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
-
-# Directory for static files during production
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Use WhiteNoise for compression and immutable file names
-STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"

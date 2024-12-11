@@ -3,14 +3,14 @@
 {% block title %} Profiles {% endblock %}
 
 {% block content %}
-<div class="card mt-4">
+<div class="card mt-5">
     <div class="card-body">
         <h5 class="card-title">Profiles</h5>
         {% if profiles_list %}
-        <ul>
+        <ul class="list-group">
         {% for profile in profiles_list %}
-            <li class="m-2">
-                <a href="{% url 'profile' username=profile.user.username %}">
+            <li class="list-group-item ">
+                <a class="link-list" href="{% url 'profile' username=profile.user.username %}">
                     {{ profile.user.username }}
                 </a>
             </li>

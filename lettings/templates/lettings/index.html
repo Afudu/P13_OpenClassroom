@@ -5,14 +5,14 @@
 
 {% block content %}
 
-<div class="card mt-4">
+<div class="card mt-5">
      <div class="card-body">
          <h5 class="card-title">Lettings</h5>
         {% if lettings_list %}
-            <ul class="m-3">
+            <ul class="m-3 list-group">
             {% for letting in lettings_list %}
-                <li class="m-2">
-                    <a href="{% url 'letting' letting_id=letting.id %}">
+                <li class="list-group-item">
+                    <a class="link-list" href="{% url 'letting' letting_id=letting.id %}">
                         {{ letting.title }}
                     </a>
                 </li>
