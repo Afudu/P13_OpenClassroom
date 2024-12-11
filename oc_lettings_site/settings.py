@@ -60,7 +60,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'oc_lettings_site.urls'
 
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -121,16 +120,19 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Directory where static files will be collected for production
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static/staticfiles')
-STATIC_ROOT = os.path.join(BASE_DIR, "/staticfiles")
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-STATIC_URL = "/static/"
-
+# https://docs.djangoproject.com/en/5.0/howto/static-files/
+# This setting informs Django of the URI path from which your static files will be served to users
+# Here, they will be accessible at your-domain.onrender.com/static/... or yourcustomdomain.com/static/...
+STATIC_URL = '/static/'
 
 # Directory for static files during development
-STATICFILES_DIRS = [os.path.join(BASE_DIR, '/staticfiles/')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles/')]
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+# This production code might break development mode, so we check whether we're in DEBUG mode
+if not DEBUG:
+    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
+    # and renames the files with unique names for each version to support long-term caching
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
