@@ -1,150 +1,206 @@
-# OpenClassrooms - Python Developer Path
+# Scale a Django Application Using Modular Architecture
 
-**Project 13:** Scale a Django Application Using Modular Architecture
+**Project 13**  
 
 **Student:** Abdoul Baki Seydou
 
-**Date:** 10/09/2024
+**Date:** 10/09/2024  
+
+## Table of Contents
+1. [Summary](#summary)
+2. [Technologies Used](#technologies-used)
+3. [Immediate Tasks](#immediate-tasks)
+4. [Local Development](#local-development)
+   - [Prerequisites](#prerequisites)
+   - [Setup on macOS/Linux](#setup-on-macoslinux)
+   - [Setup on Windows](#setup-on-windows)
+   - [Running the Application](#running-the-application)
+   - [Linting and Testing](#linting-and-testing)
+   - [Database Management](#database-management)
+   - [Admin Panel](#admin-panel)
+5. [Deployment](#deployment)
+   - [Prerequisites](#deployment-prerequisites)
+   - [Overview](#overview)
+   - [Configuration](#configuration)
+   - [Steps to Deploy](#steps-to-deploy)
+   - [Live Application](#live-application)
+
+---
 
 ## Summary
+This project involves improving the [OC Lettings website](https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings), 
+focusing on code quality and deployment enhancements.
+The improvements include modular architecture, CI/CD implementation, and production error logging.
 
-The project consists of improving the 
-[initial website](https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings) 
-of Orange County Lettings, a startup in the property rentals industry, 
-both in terms of the code and its deployment.
+---
 
-The website is built with Django, a Python framework, and uses an SQLite database.
+## Technologies Used
+- **Programming Language:** Python  
+- **Framework:** Django  
+- **Database:** SQLite  
 
-The improvements to add to the website are broken into four parts:
-   1. Miscellaneous technical debt refactor.
-   2. Modular architecture refactor.
-   3. CI/CD pipeline and deployment.
-   4. Production error logging using Sentry.
+---
 
-## Local development
+## Immediate Tasks
+The improvements are divided into the following parts:
+1. Refactoring to address technical debt.
+2. Transitioning to a modular architecture.
+3. Implementing CI/CD pipeline and automated deployment.
+4. Integrating Sentry for production error logging.
+
+---
+
+## Local Development
 
 ### Prerequisites
+- GitHub account with repository access.
+- Git CLI.
+- SQLite3 CLI.
+- Python 3.6 or higher.
 
-- GitHub account with read access to this repository
-- Git CLI
-- SQLite3 CLI
-- Python interpreter, version 3.6 or higher
+---
 
-In the rest of the local development documentation, it is assumed the command `python` in 
-your OS shell runs the above Python interpreter (unless a virtual environment is activated).
+### Setup on macOS/Linux
 
-### macOS / Linux
+1. **Clone the Repository**
+   ```bash
+   cd /path/to/put/project/in
+   git clone https://github.com/Afudu/P13_OpenClassroom.git
 
-#### Clone the repository
+2. **Move to the folder**
+   ```bash
+   cd P13_OpenClassroom
 
-- `cd /path/to/put/project/in`
-- `git clone https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings.git`
+3. **Set Up Virtual Environment**
+   ```bash
+   python -m venv venv
+   
+4. **Activate Environment**
+   ```bash
+   source venv/bin/activate 
 
-#### Create the virtual environment
+5. **Securely upgrade pip**
+   ```bash
+   python -m pip install --upgrade pip 
 
-- `cd /path/to/Python-OC-Lettings`
-- `python -m venv venv`
-- `apt-get install python3-venv` (If previous step errors with package not found on Ubuntu)
-- Activate the environment `source venv/bin/activate`
-- Confirm the command `python` now runs the Python interpreter in the virtual environment,
-`which python`
-- Confirm the version of the Python interpreter is 3.6 or higher `python --version`
-- Confirm the command `pip` runs the pip executable in the virtual environment, `which pip`
-- To deactivate the environment, `deactivate`
+6. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   
+7. **To deactivate Environment**
+   ```bash
+   deactivate
 
-#### Run the site
+---
 
-- `cd /path/to/Python-OC-Lettings`
-- `source venv/bin/activate`
-- `pip install --requirement requirements.txt`
-- `python manage.py runserver`
-- Go to `http://localhost:8000` in a browser.
-- Confirm the site is running and can be navigated (you should see several profiles and lettings).
+### Setup on Windows
 
-#### Linting
+1. Follow the steps above.
 
-- `cd /path/to/Python-OC-Lettings`
-- `source venv/bin/activate`
-- `flake8`
+2. To activate the environment:
+   ```bash
+   .\venv\Scripts\Activate
+   
+---
 
-#### Unit tests
+### Running the application
 
-- `cd /path/to/Python-OC-Lettings`
-- `source venv/bin/activate`
-- `pytest`
+1. **Start the server**
+   ```bash
+   python manage.py runserver
+   
+2. **Access in the browser**
+   To verify the site is running, navigate to:
+   ```bash
+   http://localhost:8000
 
-#### Database
+---
 
-- `cd /path/to/Python-OC-Lettings`
-- Open a shell session `sqlite3`
-- Connect to the database `.open oc-lettings-site.sqlite3`
-- Display tables in the database `.tables`
-- Display columns in the profiles table, `pragma table_info(Python-OC-Lettings_profile);`
-- Run a query on the profiles table, `select user_id, favorite_city from
-  Python-OC-Lettings_profile where favorite_city like 'B%';`
-- `.quit` to exit
+### Linting and Testing
 
-#### Admin panel
+- **Run Linting**
+  ```bash
+  flake8
 
-- Go to `http://localhost:8000/admin`
-- Login with user `admin`, password `Abc1234!`
+- **Run Unit Tests**
+  ```bash
+  pytest 
 
-### Windows
+---
 
-Using PowerShell, as above except:
+### Database Management
 
-- To activate the virtual environment, `.\venv\Scripts\Activate.ps1` 
-- Replace `which <my-command>` with `(Get-Command <my-command>).Path`
+- **Open SQLite shell:**
+  ```bash
+  sqlite3
+  
+- **Connect to the database:**
+  ```sql
+  .open oc-lettings-site.sqlite3
+  
+- **View tables:**
+  ```sql
+  .tables
+  
+- **Query profiles table:**
+  ```sql
+  select user_id, favorite_city from Python-OC-Lettings_profile where favorite_city like 'B%';
+  
+- **Exit shell:**
+  ```sql
+  sqlite3
+
+---
+
+### Admin Panel
+1. Navigate to http://localhost:8000/admin
+2. Use login credentials:
+   - Username: admin
+   - Password: Abc1234!
+
+---
 
 ## Deployment
 
-### Prerequisites
-- GitHub repository for the application to be deployed.
-- [Docker Hub](https://hub.docker.com/) account.
-- [Render](https://render.com/) account with a web app service set up.
-- [Sentry](https://sentry.io/signup/) account for a Django project.
+### Deployment Prerequisites
+- GitHub repository.
+- Docker Hub account.
+- Render account with a web app service.
+- Sentry account for Django.
+
+---
 
 ### Overview
-The website is deployed using a CI/CD pipeline using GitHub Actions.
+Deployment uses a CI/CD pipeline with GitHub Actions, involving:
+1. Linting and testing code.
+2. Building and pushing Docker images.
+3. Deploying to Render.
 
-The deployment workflow involves:
-  1. The code is linted and tested before deployment.
-  2. A Docker image is built, tagged, and pushed to Docker Hub.
-  3. The image is deployed to Render, a cloud hosting service.
+---
 
 ### Configuration
-The configuration involves:
-1. Production error logging using Sentry:
-   - Set up the Sentry account created in the Django application settings.
-   - Sentry automatically assigns a Data Source Name (DSN).
-2. Docker Hub repository:
-   - Create a repository to store images created during containerization.
-3. A Dockerfile.
-   - Create a Dockerfile in the root of the project repository.
-4. Render setup:
-   - Create a new web app service for an existing image.
-   - Get the Render deploy hook URL from the web app settings.
-   - Get the deployed app URL from the web app settings.
-5. Account credentials set up as GitHub secrets.
-6. GitHub actions Workflow creation placed in ```.github/workflows``` located in the root of the repository.
+1. **Sentry:** Configure DSN in Django settings.
+2. **Docker Hub:** Create a repository for container images.
+3. **Dockerfile:** Add at the root of the project.
+4. **Render:** Set up a web app service for the container image.
+5. **GitHub Secrets:** Store account credentials securely.
+6. **Workflow:** Place configuration in .github/workflows.
 
-Note: Store account credentials as GiHub secrets.
+---
 
-### Steps
-To run the deployment:
-
+### Steps to Deploy
 1. Push changes to the master branch.
-2. The pipeline runs automatically, performing the following jobs:
-   - Build-and-Test
-   - Containerization
-   - Deploy to Production.
+2. The pipeline will:
+   - Build and test the code.
+   - Build and push Docker images.
+   - Deploy to production.
 
-* Note: 
-  - Changes to the master branch trigger all three jobs.
-  - Changes to other branches only trigger the build-and-test job.
+   **Note:** Changes to non-master branches only trigger the build-and-test step.
 
-The deployment can be created anytime by rerunning the pipeline.
+---
 
-The OC Lettings's website is deployed to Render with all improvements addressed, and is available at: 
+### Live Application
 
-https://python-oc-lettings-latest.onrender.com/
+- The website is live at:
+
+   https://python-oc-lettings-latest.onrender.com/
