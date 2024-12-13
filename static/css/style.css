@@ -68,7 +68,11 @@ padding: 15px;
  width: 100px;}
 
  .link-list{
-    color: #000;
+    color: #6c757d;
     text-decoration: none;
 
  }
+
+ .link-list:hover{
+    color: #212529 !important;
+}
