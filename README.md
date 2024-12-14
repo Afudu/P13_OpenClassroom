@@ -25,8 +25,6 @@
    - [Steps to Deploy](#steps-to-deploy)
    - [Live Application](#live-application)
 
-***
-
 ## Summary
 This project involves improving the [OC Lettings website](https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings), 
 focusing on code quality and deployment enhancements.
@@ -101,8 +99,6 @@ The improvements are divided into the following parts:
    To verify the site is running, navigate to:
    ```bash
    http://localhost:8000
-
----
 
 ### Linting and Testing
 
