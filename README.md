@@ -25,14 +25,14 @@
    - [Steps to Deploy](#steps-to-deploy)
    - [Live Application](#live-application)
 
----
+----
 
 ## Summary
 This project involves improving the [OC Lettings website](https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings), 
 focusing on code quality and deployment enhancements.
 The improvements include modular architecture, CI/CD implementation, and production error logging.
 
----
+----
 
 ## Technologies Used
 - **Programming Language:** Python  
