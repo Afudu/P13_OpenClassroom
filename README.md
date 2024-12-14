@@ -1,6 +1,6 @@
 # Scale a Django Application Using Modular Architecture
 
-**Project 13**  
+**OpenClassrooms - Python Developer Path:** Project 13 
 
 **Student:** Abdoul Baki Seydou
 
@@ -25,8 +25,6 @@
    - [Steps to Deploy](#steps-to-deploy)
    - [Live Application](#live-application)
 
-***
-
 ## Summary
 This project involves improving the [OC Lettings website](https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings), 
 focusing on code quality and deployment enhancements.
@@ -38,9 +36,9 @@ The improvements include modular architecture, CI/CD implementation, and product
 - **Database:** SQLite
 
 ## Project Tasks
-The improvements are divided into the following parts:
+The improvements are divided into four parts:
 1. Refactoring to address technical debt.
-2. Transitioning to a modular architecture.
+2. Modular architecture refactor.
 3. Implementing CI/CD pipeline and automated deployment.
 4. Integrating Sentry for production error logging.
 
@@ -98,11 +96,10 @@ The improvements are divided into the following parts:
    python manage.py runserver
    
 2. **Access in the browser**
+
    To verify the site is running, navigate to:
    ```bash
    http://localhost:8000
-
----
 
 ### Linting and Testing
 
@@ -157,19 +154,19 @@ Deployment uses a CI/CD pipeline with GitHub Actions, involving:
 3. Deploying to Render, a cloud hosting service.
 
 ### Configuration
-1. **Sentry:** Configure DSN in Django settings.
-2. **Docker Hub:** Create a repository for container images.
-3. **Dockerfile:** Add at the root of the project.
-4. **Render:** Set up a web app service for the container image.
-5. **GitHub Secrets:** Store account credentials securely.
-6. **Workflow:** Place configuration in .github/workflows.
+1. **Docker Hub:** Create a repository for container images.
+2. **Dockerfile:** Add at the root of the project.
+3. **Render:** Set up a web app service for the container image.
+4. **GitHub Secrets:** Store account credentials securely.
+5. **Workflow:** Create and place configuration in .github/workflows.
+6. **Sentry:** Configure DSN in Django settings.
 
 ### Steps to Deploy
 1. Push changes to the master branch.
 2. The pipeline will:
    - Build and test the code.
-   - Build and push Docker images.
-   - Deploy to production.
+   - Build and push the Docker image.
+   - Deploy the image to production.
 
    **Note:** Changes to non-master branches only trigger the build-and-test step.
 
