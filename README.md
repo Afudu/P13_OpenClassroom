@@ -32,7 +32,7 @@ This project involves improving the [OC Lettings website](https://github.com/Ope
 focusing on code quality and deployment enhancements.
 The improvements include modular architecture, CI/CD implementation, and production error logging.
 
-----
+---
 
 ## Technologies Used
 - **Programming Language:** Python  
