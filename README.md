@@ -9,7 +9,7 @@
 ## Table of Contents
 1. [Summary](#summary)
 2. [Technologies Used](#technologies-used)
-3. [Immediate Tasks](#immediate-tasks)
+3. [Project Tasks](#project-tasks)
 4. [Local Development](#local-development)
    - [Prerequisites](#prerequisites)
    - [Setup on macOS/Linux](#setup-on-macoslinux)
@@ -25,30 +25,22 @@
    - [Steps to Deploy](#steps-to-deploy)
    - [Live Application](#live-application)
 
-----
-
 ## Summary
 This project involves improving the [OC Lettings website](https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings), 
 focusing on code quality and deployment enhancements.
 The improvements include modular architecture, CI/CD implementation, and production error logging.
 
----
-
 ## Technologies Used
 - **Programming Language:** Python  
 - **Framework:** Django  
-- **Database:** SQLite  
+- **Database:** SQLite
 
----
-
-## Immediate Tasks
+## Project Tasks
 The improvements are divided into the following parts:
 1. Refactoring to address technical debt.
 2. Transitioning to a modular architecture.
 3. Implementing CI/CD pipeline and automated deployment.
 4. Integrating Sentry for production error logging.
-
----
 
 ## Local Development
 
@@ -57,8 +49,6 @@ The improvements are divided into the following parts:
 - Git CLI.
 - SQLite3 CLI.
 - Python 3.6 or higher.
-
----
 
 ### Setup on macOS/Linux
 
@@ -91,8 +81,6 @@ The improvements are divided into the following parts:
    ```bash
    deactivate
 
----
-
 ### Setup on Windows
 
 1. Follow the steps above.
@@ -100,8 +88,6 @@ The improvements are divided into the following parts:
 2. To activate the environment:
    ```bash
    .\venv\Scripts\Activate
-   
----
 
 ### Running the application
 
@@ -114,8 +100,6 @@ The improvements are divided into the following parts:
    ```bash
    http://localhost:8000
 
----
-
 ### Linting and Testing
 
 - **Run Linting**
@@ -124,9 +108,7 @@ The improvements are divided into the following parts:
 
 - **Run Unit Tests**
   ```bash
-  pytest 
-
----
+  pytest
 
 ### Database Management
 
@@ -150,15 +132,11 @@ The improvements are divided into the following parts:
   ```sql
   sqlite3
 
----
-
 ### Admin Panel
 1. Navigate to http://localhost:8000/admin
 2. Use login credentials:
    - Username: admin
    - Password: Abc1234!
-
----
 
 ## Deployment
 
@@ -168,15 +146,11 @@ The improvements are divided into the following parts:
 - Render account with a web app service.
 - Sentry account for Django.
 
----
-
 ### Overview
 Deployment uses a CI/CD pipeline with GitHub Actions, involving:
 1. Linting and testing code.
 2. Building and pushing Docker images.
-3. Deploying to Render.
-
----
+3. Deploying to Render, a cloud hosting service.
 
 ### Configuration
 1. **Sentry:** Configure DSN in Django settings.
@@ -186,8 +160,6 @@ Deployment uses a CI/CD pipeline with GitHub Actions, involving:
 5. **GitHub Secrets:** Store account credentials securely.
 6. **Workflow:** Place configuration in .github/workflows.
 
----
-
 ### Steps to Deploy
 1. Push changes to the master branch.
 2. The pipeline will:
@@ -196,8 +168,6 @@ Deployment uses a CI/CD pipeline with GitHub Actions, involving:
    - Deploy to production.
 
    **Note:** Changes to non-master branches only trigger the build-and-test step.
-
----
 
 ### Live Application
 
