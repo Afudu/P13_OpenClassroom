@@ -24,7 +24,7 @@ COPY . /OC-lettings/
 
 # Collect static files
 # https://docs.djangoproject.com/en/5.1/ref/contrib/staticfiles/
-RUN python manage.py collectstatic --noinput --clear
+RUN python manage.py collectstatic --noinput
 
 # Expose the port the app runs on
 EXPOSE 8000
