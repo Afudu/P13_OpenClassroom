@@ -24,10 +24,11 @@ COPY . /OC-lettings/
 
 # Collect static files
 # https://docs.djangoproject.com/en/5.1/ref/contrib/staticfiles/
-RUN python manage.py collectstatic --noinput
+RUN python manage.py collectstatic --noinput --clear
 
 # Expose the port the app runs on
 EXPOSE 8000
 
 # Run the application
+# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "oc_lettings_site.wsgi:application"]
