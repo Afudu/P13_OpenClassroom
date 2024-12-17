@@ -6,15 +6,7 @@ from sentry_sdk.integrations.django import DjangoIntegration
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-
 # Sentry automatically assigns you a Data Source Name (DSN)
-# when you create a project to start monitoring events in your app.
-# A DSN tells a Sentry SDK where to send events
-# so the events are associated with the correct project.
-# Set traces_sample_rate to 1.0 to capture 100%
-# of transactions for performance monitoring.
 sentry_sdk.init(
     dsn=config('SENTRY_DSN', default=''),
     integrations=[DjangoIntegration()],
@@ -23,11 +15,9 @@ sentry_sdk.init(
 )
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY is fetched from the environment.
 SECRET_KEY = config('SECRET_KEY', default='secret-key-for-dev')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# Debug mode; ensures secure defaults in production.
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 # Allowed hosts for the application; add your domain in production.
@@ -68,6 +58,7 @@ ROOT_URLCONF = 'oc_lettings_site.urls'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+# https://docs.djangoproject.com/en/5.1/ref/contrib/staticfiles/
 # This setting informs Django of the URI path from which your static
 # files will be served to users
 STATIC_URL = '/static/'
