@@ -15,7 +15,7 @@ sentry_sdk.init(
 )
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY', default='secret-key-for-dev')
+SECRET_KEY = config('SECRET_KEY', default='The secret is something very special to keep safely')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
@@ -40,7 +40,6 @@ PROJECT_APPS = [
 ]
 
 INSTALLED_APPS = DJANGO_CORE_APPS + PROJECT_APPS
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -72,7 +71,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Enable the WhiteNoise storage backend,
 # which compresses static files to reduce disk
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
-
 
 TEMPLATES = [
     {
@@ -133,3 +131,19 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# security settings
+# SECURE_HSTS_SECONDS = 0
+# Site avaialble over https
+SECURE_SSL_REDIRECT = True
+# Using a secure-only session cookie makes it more difficult
+# for network traffic sniffers to hijack user sessions.
+SESSION_COOKIE_SECURE = True
+# Using a secure-only CSRF cookie makes it more difficult for network
+# traffic sniffers to steal the CSRF token.
+CSRF_COOKIE_SECURE = True
