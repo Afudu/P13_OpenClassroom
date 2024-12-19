@@ -137,10 +137,7 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# security settings
-# SECURE_HSTS_SECONDS = 0
-# Site avaialble over https
-SECURE_SSL_REDIRECT = True
+# Security settings
 # Using a secure-only session cookie makes it more difficult
 # for network traffic sniffers to hijack user sessions.
 SESSION_COOKIE_SECURE = True
