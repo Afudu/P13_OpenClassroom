@@ -26,3 +26,8 @@ def trigger_error(request):
     except Exception as e:
         capture_exception(e)
         return render(request, 'home/error.html')
+
+
+def privacy_policy_view(request):
+    """Render the privacy policy page."""
+    return render(request, 'home/privacy_policy_template.html')

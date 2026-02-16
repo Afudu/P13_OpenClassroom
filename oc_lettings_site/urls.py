@@ -11,6 +11,7 @@ urlpatterns = [
     path('', include('profiles.urls')),
     path('admin/', admin.site.urls),
     path('sentry-debug/', views.trigger_error, name='trigger_error'),
+    path('privacy-policy/', views.privacy_policy_view, name='privacy_policy'),
 ]
 
 # Serving static files during development
