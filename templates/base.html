@@ -10,6 +10,11 @@
   <title>{% block title %} {% endblock title %}</title>
   <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 
+	<!--  Cookies pop-up -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css" />
+  <script src=" {% static 'js/cookie_script.js' %}"></script>
+
  <!--  Bootstrap core CSS --> 
   <link href=" {% static 'vendor/bootstrap/v5/css/bootstrap.min.css' %}" rel="stylesheet">
   
@@ -34,6 +39,7 @@
 	  
 	 <footer class="footer mt-auto py-2 bg-dark">
 	  <div class="container">
+<!--		  <a href="{% url 'privacy_policy' %}">Privacy Policy</a>-->
 		<p class="m-0 text-center small text-white text-muted">Copyright &copy; Songhay.Org {% now "Y" %}</p>
 	  </div>
 	</footer>

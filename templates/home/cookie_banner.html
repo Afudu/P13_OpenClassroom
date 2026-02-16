@@ -1,0 +1,8 @@
+{% load cookie_consent_tags %}
+{% if not cookies_accepted %}
+<div id="cookie-banner">
+    <p>We use cookies to improve your experience. By continuing to browse, you accept our cookie policy.</p>
+    <a href="{% url 'cookie_consent_accept' %}">Accept</a>
+    <a href="{% url 'cookie_consent_decline' %}">Decline</a>
+</div>
+{% endif %}
